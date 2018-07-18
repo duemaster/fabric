@@ -102,12 +102,12 @@ IMAGES = peer orderer ccenv tools
 RELEASE_PLATFORMS = windows-amd64 darwin-amd64 linux-amd64 linux-ppc64le linux-s390x
 RELEASE_PKGS = configtxgen cryptogen configtxlator peer orderer
 
-pkgmap.cryptogen      := $(PKGNAME)/common/tools/cryptogen
-pkgmap.configtxgen    := $(PKGNAME)/common/tools/configtxgen
-pkgmap.configtxlator  := $(PKGNAME)/common/tools/configtxlator
-pkgmap.peer           := $(PKGNAME)/peer
-pkgmap.orderer        := $(PKGNAME)/orderer
-pkgmap.block-listener := $(PKGNAME)/examples/events/block-listener
+pkgmap.cryptogen      := common/tools/cryptogen
+pkgmap.configtxgen    := common/tools/configtxgen
+pkgmap.configtxlator  := common/tools/configtxlator
+pkgmap.peer           := peer
+pkgmap.orderer        := orderer
+pkgmap.block-listener := examples/events/block-listener
 
 include docker-env.mk
 
