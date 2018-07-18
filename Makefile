@@ -68,7 +68,7 @@ else
 PROJECT_VERSION=$(BASE_VERSION)
 endif
 
-PKGNAME = github.com/$(PROJECT_NAME)
+PKGNAME = $(PROJECT_NAME)
 CGO_FLAGS = CGO_CFLAGS=" "
 ARCH=$(shell uname -m)
 MARCH=$(shell go env GOOS)-$(shell go env GOARCH)
