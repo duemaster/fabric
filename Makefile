@@ -49,11 +49,10 @@ BASEIMAGE_RELEASE=0.4.6
 # Allow to build as a submodule setting the main project to
 # the PROJECT_NAME env variable, for example,
 # export PROJECT_NAME=hyperledger/fabric-test
-
 ifeq ($(PROJECT_NAME),true)
-PROJECT_NAME = $(PROJECT_NAME)
+PROJECT_NAME = $(PROJECT_NAME)/fabric
 else
-PROJECT_NAME = fabric
+PROJECT_NAME = hyperledger/fabric
 endif
 IS_RELEASE = false
 EXPERIMENTAL ?= false
@@ -69,7 +68,7 @@ else
 PROJECT_VERSION=$(BASE_VERSION)
 endif
 
-PKGNAME = $(PROJECT_NAME)
+PKGNAME = github.com/$(PROJECT_NAME)
 CGO_FLAGS = CGO_CFLAGS=" "
 ARCH=$(shell uname -m)
 MARCH=$(shell go env GOOS)-$(shell go env GOARCH)
@@ -257,6 +256,7 @@ build/bin/peer: build/image/ccenv/$(DUMMY) build/image/javaenv/$(DUMMY)
 build/image/peer/$(DUMMY): build/image/ccenv/$(DUMMY) build/image/javaenv/$(DUMMY)
 
 build/bin/%: $(PROJECT_FILES)
+	@echo "doing stuff here %"
 	@mkdir -p $(@D)
 	@echo "$@"
 	$(CGO_FLAGS) GOBIN=$(abspath $(@D)) go install -tags "$(GO_TAGS)" -ldflags "$(GO_LDFLAGS)" $(pkgmap.$(@F))
