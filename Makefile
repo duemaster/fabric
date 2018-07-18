@@ -49,7 +49,7 @@ BASEIMAGE_RELEASE=0.4.6
 # Allow to build as a submodule setting the main project to
 # the PROJECT_NAME env variable, for example,
 # export PROJECT_NAME=hyperledger/fabric-test
-$PROJECT_NAME=fabric
+PROJECT_NAME=fabric
 IS_RELEASE = false
 EXPERIMENTAL ?= false
 
