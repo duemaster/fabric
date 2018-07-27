@@ -256,7 +256,6 @@ build/bin/peer: build/image/ccenv/$(DUMMY) build/image/javaenv/$(DUMMY)
 build/image/peer/$(DUMMY): build/image/ccenv/$(DUMMY) build/image/javaenv/$(DUMMY)
 
 build/bin/%: $(PROJECT_FILES)
-	@echo "doing stuff here %"
 	@mkdir -p $(@D)
 	@echo "$@"
 	$(CGO_FLAGS) GOBIN=$(abspath $(@D)) go install -tags "$(GO_TAGS)" -ldflags "$(GO_LDFLAGS)" $(pkgmap.$(@F))
